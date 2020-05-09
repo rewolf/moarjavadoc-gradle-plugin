@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+    id 'java-gradle-plugin'
+    id 'com.gradle.plugin-publish' version '0.11.0'
+}
+
+group 'com.github.rewolf.gradle'
+version '1.0.0'
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+gradlePlugin {
+    plugins {
+        moarJavadocPlugin {
+            id = 'com.github.rewolf.gradle.moarjavadoc'
+            implementationClass = 'com.github.rewolf.gradle.moarjavadoc.MoarJavadocPlugin'
+            description = 'Assists Javadoc tasks by automatically delomboking lombok\'d source ' +
+                    'and linking Official Java SE Javadoc for the specified source version.'
+            displayName = 'Moar Javadoc Gradle Plugin'
+        }
+    }
+}
+
+pluginBundle {
+    website = 'https://github.com/rewolf/moarjavadoc-gradle-plugin'
+    vcsUrl = 'https://github.com/rewolf/moarjavadoc-gradle-plugin'
+    tags = ['java', 'javadoc', 'lombok', 'delombok']
+}
